@@ -54,7 +54,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZC-uI-2oQ" id="dRV-3n-ywQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wakeup.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="MJx-hb-pym">
@@ -76,6 +76,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.79308242941278762" green="0.84647826868674558" blue="0.97118842601776123" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descLabel" destination="4Ns-W9-jCY" id="KOl-bL-W7f"/>
