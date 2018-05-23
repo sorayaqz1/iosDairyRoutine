@@ -11,7 +11,10 @@ import UIKit
 class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var taskName: UITextField!
-    @IBOutlet var taskImage: UIImageView!
+        
+    @IBOutlet weak var taskImageView: UIImageView!
+    
+    
     
     
     override func viewDidLoad() {
@@ -47,9 +50,14 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     
-    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+    
+    //MARK: Actions
+
+    @IBAction func selectImageAction(_ sender: UITapGestureRecognizer) {
         
-        // hide the keyboard
+        print("test image action....")
+        
+       //  hide the keyboard
         taskName.resignFirstResponder()
         
         //UIImagePickerController is a view controller that lets a user pick media from their photo library
@@ -61,11 +69,8 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // Make sure ViewController is notified when the user picks an image
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-        
 
     }
-    
-    
     
     
     // MARK: UIImagePickerControllerDelegate
@@ -82,7 +87,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         }
         
         // set photoImageView to display the selected image
-        taskImage.image = selectedImage
+        taskImageView.image = selectedImage
         
         //Dismiss the picker
         dismiss(animated: true, completion: nil)

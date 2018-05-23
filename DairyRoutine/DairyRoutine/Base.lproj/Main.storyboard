@@ -21,10 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcc-aq-KvL">
-                                <rect key="frame" x="16" y="526" width="334" height="133"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Wakeup" placeholder="Task Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9IN-12-EWd">
                                 <rect key="frame" x="74" y="28" width="234" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,14 +35,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wakeup" translatesAutoresizingMaskIntoConstraints="NO" id="62l-3s-C5g">
-                                <rect key="frame" x="108" y="146" width="158" height="124"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="b6m-Qg-Dr7" appends="YES" id="fKt-lQ-tDR"/>
-                                </connections>
-                            </imageView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-hG-Tl2">
                                 <rect key="frame" x="26" y="372" width="324" height="111"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -57,6 +45,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSh-cd-99c">
                                 <rect key="frame" x="26" y="324" width="57" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,6 +57,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coffee" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-vl-Xya">
+                                <rect key="frame" x="67" y="140" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rtd-u1-gnx" appends="YES" id="x01-6e-gVR"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -76,14 +73,14 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fKS-sR-tPN"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="TaskImage" destination="62l-3s-C5g" id="N0y-oT-Dj0"/>
                         <outlet property="TaskName" destination="oVh-1T-FlO" id="uAn-bD-KZU"/>
+                        <outlet property="taskImageView" destination="y1N-vl-Xya" id="abN-Bw-Jnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjt-H9-Pk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="b6m-Qg-Dr7">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="rtd-u1-gnx">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="yQx-HW-LYZ" id="RK0-Ci-5yx"/>
+                        <action selector="selectImageAction:" destination="yQx-HW-LYZ" id="XNa-7d-yCe"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -188,7 +185,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="wakeup" width="98" height="128"/>
+        <image name="coffee" width="142" height="88"/>
         <image name="wakeup.jpeg" width="196" height="257"/>
     </resources>
 </document>
