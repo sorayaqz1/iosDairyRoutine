@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30E561620B47D8100146135 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30E561520B47D8100146135 /* TaskDetailViewController.swift */; };
 		F3C2345920B3304200B27040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2345820B3304200B27040 /* AppDelegate.swift */; };
 		F3C2345B20B3304200B27040 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C2345A20B3304200B27040 /* ViewController.swift */; };
 		F3C2345E20B3304200B27040 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3C2345C20B3304200B27040 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F30E561520B47D8100146135 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		F3C2345520B3304200B27040 /* DairyRoutine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairyRoutine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3C2345820B3304200B27040 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3C2345A20B3304200B27040 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				F3C2345A20B3304200B27040 /* ViewController.swift */,
 				F3C2345C20B3304200B27040 /* Main.storyboard */,
 				F3C2348720B3693000B27040 /* TaskTableViewController.swift */,
+				F30E561520B47D8100146135 /* TaskDetailViewController.swift */,
 				F3C2345F20B3304200B27040 /* Assets.xcassets */,
 				F3C2346120B3304200B27040 /* LaunchScreen.storyboard */,
 				F3C2346420B3304200B27040 /* Info.plist */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F30E561620B47D8100146135 /* TaskDetailViewController.swift in Sources */,
 				F3C2345B20B3304200B27040 /* ViewController.swift in Sources */,
 				F3C2345920B3304200B27040 /* AppDelegate.swift in Sources */,
 				F3C2348A20B3819800B27040 /* Task.swift in Sources */,
