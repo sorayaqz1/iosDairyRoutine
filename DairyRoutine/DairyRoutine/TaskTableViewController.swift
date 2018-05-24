@@ -171,11 +171,18 @@ class TaskTableViewController: UITableViewController {
     @IBAction func unwindToTaskList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? TaskDetailViewController, let task = sourceViewController.task {
             
-            // Add a new task
-            let newIndexPath = IndexPath(row: tasks.count, section: 0)
-            
-            tasks.append(task)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // update an existing meal
+                tasks[selectedIndexPath.row] = task
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else {
+                // Add a new task
+                let newIndexPath = IndexPath(row: tasks.count, section: 0)
+                
+                tasks.append(task)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
         print(sender.source)
     }
