@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import os.log
+
 
 class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var taskName: UITextField!
-        
     @IBOutlet weak var taskImageView: UIImageView!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    var task: Task?
     
     
     override func viewDidLoad() {
@@ -52,12 +55,11 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     
     //MARK: Actions
-
     @IBAction func selectImageAction(_ sender: UITapGestureRecognizer) {
         
         print("test image action....")
         
-       //  hide the keyboard
+        //  hide the keyboard
         taskName.resignFirstResponder()
         
         //UIImagePickerController is a view controller that lets a user pick media from their photo library
@@ -69,9 +71,8 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // Make sure ViewController is notified when the user picks an image
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-
     }
-    
+
     
     // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -97,5 +98,26 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         
         
     }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        let name = taskName.text ?? ""
+        let photo = taskImageView.image
+        
+        // set the task to be pressed to TAskDetailTableViewController after the unwind segue
+        task = Task(name: name, photo: photo!, desc: "")
+        
+        
+    }
+    
+    
+    
+    
 
 }

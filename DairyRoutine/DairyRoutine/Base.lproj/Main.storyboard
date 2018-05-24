@@ -62,7 +62,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="rtd-u1-gnx" appends="YES" id="x01-6e-gVR"/>
+                                    <outletCollection property="gestureRecognizers" destination="I5v-nT-Y4D" appends="YES" id="Jsh-K5-mGY"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -70,17 +70,23 @@
                     </view>
                     <navigationItem key="navigationItem" title="Task Detail" id="YCV-Ux-BKj">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fit-6y-5Tv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fKS-sR-tPN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fKS-sR-tPN">
+                            <connections>
+                                <segue destination="Z49-6u-dtp" kind="unwind" unwindAction="unwindToTaskListWithSender:" id="L4S-Lu-l3H"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="TaskName" destination="oVh-1T-FlO" id="uAn-bD-KZU"/>
+                        <outlet property="saveButton" destination="fKS-sR-tPN" id="T8a-hM-04N"/>
                         <outlet property="taskImageView" destination="y1N-vl-Xya" id="abN-Bw-Jnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjt-H9-Pk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer cancelsTouchesInView="NO" id="rtd-u1-gnx">
+                <exit id="Z49-6u-dtp" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="I5v-nT-Y4D">
                     <connections>
-                        <action selector="selectImageAction:" destination="yQx-HW-LYZ" id="XNa-7d-yCe"/>
+                        <action selector="selectImageAction:" destination="yQx-HW-LYZ" id="gZK-WA-hgr"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

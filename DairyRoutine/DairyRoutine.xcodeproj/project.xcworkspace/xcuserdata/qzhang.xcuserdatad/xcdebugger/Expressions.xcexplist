@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TaskTableViewController.unwindToTaskList1(sender : UIStoryboardSegue) -&gt; ():TaskTableViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskDetailViewController.task.getter:TaskDetailViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TaskTableViewController.unwindToTaskList(sender : UIStoryboardSegue) -&gt; ():TaskTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender.source">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TaskDetailViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():TaskDetailViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

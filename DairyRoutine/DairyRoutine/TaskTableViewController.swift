@@ -165,5 +165,18 @@ class TaskTableViewController: UITableViewController {
         
     }
     
+    //MARK: Actions
+    
+    @IBAction func unwindToTaskList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? TaskDetailViewController, let task = sourceViewController.task {
+            
+            // Add a new task
+            let newIndexPath = IndexPath(row: tasks.count, section: 0)
+            
+            tasks.append(task)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+        print(sender.source)
+    }
     
 }

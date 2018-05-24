@@ -19,10 +19,6 @@ class Task {
             return nil
         }
         
-        guard !desc.isEmpty else {
-            return nil
-        }
-        
         
         self.name = name
         self.photo = photo
