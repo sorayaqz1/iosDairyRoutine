@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class TaskTableViewController: UITableViewController {
     
@@ -177,6 +178,41 @@ class TaskTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
         print(sender.source)
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often weant to do a little prepareation before nagivation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "AddItem":
+                os_log("Adding a new task.", log: OSLog.default, type: .debug)
+            
+            case "showDetail":
+                os_log("Show task detail...")
+                guard let taskDetailViewController = segue.destination as? TaskDetailViewController
+                    else {
+                        fatalError("Unexpected destination: \(segue.destination)")
+                    }
+            
+                guard let selectedTaskCell = sender as? TaskTableViewCell else {
+                        fatalError("Unexpected sender: \(sender)")
+                }
+            
+                guard let indexPath = tableView.indexPath(for: selectedTaskCell) else {
+                        fatalError("The selected cell is not being displayed by the table")
+                }
+            
+                let selectedTask = tasks[indexPath.row]
+                taskDetailViewController.task = selectedTask
+            
+            default:
+                fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+        
+            
+        
     }
     
 }

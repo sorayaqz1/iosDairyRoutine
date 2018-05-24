@@ -6,6 +6,14 @@
          contextName = "TaskTableViewController.unwindToTaskList1(sender : UIStoryboardSegue) -&gt; ():TaskTableViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "TaskTableViewController.prepare(for : UIStoryboardSegue, sender : Any?) -&gt; ():TaskTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TaskDetailViewController.task.getter:TaskDetailViewController.swift">
       </ContextState>
       <ContextState

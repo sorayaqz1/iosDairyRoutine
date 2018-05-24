@@ -109,7 +109,7 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MZC-uI-2oQ" id="dRV-3n-ywQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wakeup.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="MJx-hb-pym">
@@ -137,6 +137,7 @@
                                     <outlet property="descLabel" destination="4Ns-W9-jCY" id="KOl-bL-W7f"/>
                                     <outlet property="nameImage" destination="MJx-hb-pym" id="1tP-cb-1W7"/>
                                     <outlet property="nameLabel" destination="syu-AJ-EQY" id="3Rf-e1-ND5"/>
+                                    <segue destination="yQx-HW-LYZ" kind="show" identifier="showDetail" id="evq-dS-nuc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -162,7 +163,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="26l-6p-UkW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Mt-bj-3hM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Mt-bj-3hM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -180,7 +181,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kga-Ww-9Ba" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BSR-LJ-xse">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BSR-LJ-xse">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -191,11 +192,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYO-s6-usN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="47.226386806596707"/>
+            <point key="canvasLocation" x="2652" y="455"/>
         </scene>
     </scenes>
     <resources>
         <image name="coffee" width="142" height="88"/>
         <image name="wakeup.jpeg" width="196" height="257"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="evq-dS-nuc"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,13 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // Handle the text field's user input through delegate callbacks
         taskName.delegate = self
         
+        // Set up views if editing an existing task
+        if let task = task {
+            navigationItem.title = task.name
+            taskName.text = task.name
+            taskImageView.image = task.photo
+        }
+        
         // Enable the Save button only info the text field has a valid Meal name.
         updateSaveButtonState()
         
