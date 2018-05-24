@@ -23,7 +23,12 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Handle the text field's user input through delegate callbacks
+        taskName.delegate = self
+        
+        // Enable the Save button only info the text field has a valid Meal name.
+        updateSaveButtonState()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +54,14 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
     }
     
     
@@ -116,7 +128,12 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         
     }
     
-    
+    // MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = taskName.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
     
     
 
