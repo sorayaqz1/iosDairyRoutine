@@ -69,7 +69,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Task Detail" id="YCV-Ux-BKj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fit-6y-5Tv"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fit-6y-5Tv">
+                            <connections>
+                                <action selector="cancel:" destination="yQx-HW-LYZ" id="SaY-gO-Lwd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="save" id="fKS-sR-tPN">
                             <connections>
                                 <segue destination="Z49-6u-dtp" kind="unwind" unwindAction="unwindToTaskListWithSender:" id="L4S-Lu-l3H"/>
