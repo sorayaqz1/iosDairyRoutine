@@ -19,7 +19,13 @@ class TaskTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSampleTasks()
+        if let savedTasks = loadTasks() {
+            tasks += savedTasks
+        }
+        else {
+            loadSampleTasks()
+        }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,6 +85,7 @@ class TaskTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             tasks.remove(at: indexPath.row)
+            saveTasks()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -180,11 +187,13 @@ class TaskTableViewController: UITableViewController {
             }
             else {
                 // Add a new task
+                saveTasks()
                 let newIndexPath = IndexPath(row: tasks.count, section: 0)
                 
                 tasks.append(task)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            saveTasks()
         }
         print(sender.source)
     }
@@ -222,6 +231,21 @@ class TaskTableViewController: UITableViewController {
         
             
         
+    }
+    
+    private func loadTasks() -> [Task]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Task.ArchiveURL.path) as? [Task]
+    }
+    
+    // MARK: private methods
+    private func saveTasks() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tasks, toFile: Task.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Tasks successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save tasks...", log: OSLog.default, type: .error)
+        }
     }
     
 }
