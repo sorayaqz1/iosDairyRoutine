@@ -8,9 +8,10 @@
 
 import UIKit
 import os.log
+import UserNotifications
 
 
-class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate {
 
     @IBOutlet var taskName: UITextField!
     @IBOutlet weak var taskImageView: UIImageView!
@@ -18,6 +19,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var task: Task?
+    var center = UNUserNotificationCenter.current()
     
     
     override func viewDidLoad() {
@@ -35,7 +37,9 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         
         // Enable the Save button only info the text field has a valid Meal name.
         updateSaveButtonState()
-        
+        askPermissionForNotification()  // todo, for testing only in here
+        self.registerCategories()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +47,101 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK Notification
+    func askPermissionForNotification() {
+//        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) {
+            (granted, error) in
+            if granted {
+                print("Yay! Authenrization successful!!")
+                
+            } else {
+                print("D'oh")
+            }
+            
+        }
+    }
+    
+    func timeNotification(inSeconds: TimeInterval, completion:@escaping (_ success: Bool) -> ()) {
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
+        let content = UNMutableNotificationContent()
+        content.title = "New GIF"
+        content.subtitle = "subtitmlesdf "
+        content.body = "this is the body part"
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: "customNotificaion", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if error == nil {
+                completion(true)
+            } else {
+                completion(false)
+            }
+        }
+    }
+    
+    func registerCategories() {
+//        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        
+        let show = UNNotificationAction(identifier: "show", title: "Tell me more...", options: .foreground)
+        let category = UNNotificationCategory(identifier: "alarm", actions: [show], intentIdentifiers: [])
+        
+        center.setNotificationCategories([category])
+    }
+    
+    func scheduleNotification() {
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Time to get up"
+        content.body = "Get up on time and and start the day  right"
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "fizzbuzz"]
+        content.sound = UNNotificationSound.default()
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = 14
+        dateComponents.minute = 57
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+    }
 
+    
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // pull out the buried userInfo dictionary
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let customData = userInfo["customData"] as? String {
+            print("Custom data received: \(customData)")
+            
+            switch response.actionIdentifier {
+            case UNNotificationDefaultActionIdentifier:
+                // user swiped to unlock
+                print("Default identifier, user swiped to unlock")
+            case "show":
+                // user tapped our "show more info..." button
+                print("Show more information...")
+                break
+            default:
+                break
+            }
+        }
+        // you must call the completion handler when you're done
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // you must call the completion handler when you're done
+        completionHandler([.alert, .sound, .badge])
+
+    }
+    
     // MARK: - Navigation
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -59,6 +157,30 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         else {
             fatalError("The TaskViewController is not inside a navigation controller.")
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        let name = taskName.text ?? ""
+        let photo = taskImageView.image
+        
+        // set the task to be pressed to TAskDetailTableViewController after the unwind segue
+        task = Task(name: name, photo: photo!, desc: "")
+        
+        timeNotification(inSeconds: 10) { (success) in
+            print(" In time notification........")
+            if success {
+                print("Successfully Notified!!!")
+            }
+        }
+        
+        scheduleNotification()
+
     }
     
     
@@ -133,22 +255,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
         
     }
     
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }
-        let name = taskName.text ?? ""
-        let photo = taskImageView.image
-        
-        // set the task to be pressed to TAskDetailTableViewController after the unwind segue
-        task = Task(name: name, photo: photo!, desc: "")
-        
-        
-    }
+   
     
     // MARK: Private Methods
     private func updateSaveButtonState() {
