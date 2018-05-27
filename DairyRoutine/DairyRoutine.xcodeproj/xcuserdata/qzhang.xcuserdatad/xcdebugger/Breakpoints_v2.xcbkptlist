@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548966556.211337"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548970345.447232"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "cancel(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548970345.447232"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "cancel(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548970345.447232"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "cancel(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548969459.878778"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "registerCategories()"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548969459.878778"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548966556.211337"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,13 +250,106 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DairyRoutine/TaskDetailViewController.swift"
-            timestampString = "548966556.211337"
+            timestampString = "549115974.624066"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DairyRoutine/TaskDetailViewController.swift"
+            timestampString = "548974219.179372"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "TaskDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DairyRoutine.TaskDetailViewController.__deallocating_deinit"
+                  moduleName = "DairyRoutine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qzhang/dev/IOS/helloworld/DairyRoutine/DairyRoutine/TaskDetailViewController.swift"
+                  timestampString = "548974219.711617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DairyRoutine.TaskDetailViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DairyRoutine.TaskDetailViewController"
+                  moduleName = "DairyRoutine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qzhang/dev/IOS/helloworld/DairyRoutine/DairyRoutine/TaskDetailViewController.swift"
+                  timestampString = "548974219.714422"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DairyRoutine.TaskDetailViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DairyRoutine.TaskDetailViewController"
+                  moduleName = "DairyRoutine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qzhang/dev/IOS/helloworld/DairyRoutine/DairyRoutine/TaskDetailViewController.swift"
+                  timestampString = "548974219.717414"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DairyRoutine.TaskDetailViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DairyRoutine.TaskDetailViewController&gt;"
+                  moduleName = "DairyRoutine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qzhang/dev/IOS/helloworld/DairyRoutine/DairyRoutine/TaskDetailViewController.swift"
+                  timestampString = "548974219.720286"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DairyRoutine.TaskDetailViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DairyRoutine.TaskDetailViewController&gt;"
+                  moduleName = "DairyRoutine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/qzhang/dev/IOS/helloworld/DairyRoutine/DairyRoutine/TaskDetailViewController.swift"
+                  timestampString = "548974219.72518"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

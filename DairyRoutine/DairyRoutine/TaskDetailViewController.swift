@@ -11,12 +11,66 @@ import os.log
 import UserNotifications
 
 
-class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate {
+class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate  {
 
     @IBOutlet var taskName: UITextField!
     @IBOutlet weak var taskImageView: UIImageView!
+    @IBOutlet weak var descTextField: UITextView!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var startTimeTextField: UITextField!
+    
+    
+    let ampmPickerData = ["AM", "PM"]
+    
+    var starttimePickerView = UIDatePicker()
+    
+    // MARK UIPickerViewDataSource methods
+    func createDatePicker() {
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+    
+        // done button for toolbar
+        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([done], animated: false)
+    
+        startTimeTextField.inputAccessoryView =  toolbar
+        startTimeTextField.inputView = starttimePickerView
+        
+        // format picker form
+         starttimePickerView.datePickerMode = .time
+    }
+    
+    @objc func donePressed() {
+        // format date
+        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: starttimePickerView.date)
+        
+        startTimeTextField.text = "\(dateString)"
+        self.view.endEditing(true)
+    }
+    
+//    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+    
+//    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return ampmPickerData.count
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return ampmPickerData[row]
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        startTimeTextField.text = ampmPickerData[row]
+//        startTimeTextField.resignFirstResponder()
+//    }
+//    
+
     
     var task: Task?
     var center = UNUserNotificationCenter.current()
@@ -25,8 +79,18 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createDatePicker()
+        
         // Handle the text field's user input through delegate callbacks
         taskName.delegate = self
+        
+//
+//        self.starttimePickerView.delegate = self
+//        self.starttimePickerView.dataSource = self
+
+        startTimeTextField.inputView = starttimePickerView
+        startTimeTextField.textAlignment = .center
+        startTimeTextField.placeholder = "Select Time"
         
         // Set up views if editing an existing task
         if let task = task {
@@ -48,7 +112,7 @@ class TaskDetailViewController: UIViewController, UITextFieldDelegate, UIImagePi
     }
     
     
-    // MARK Notification
+        // MARK Notification
     func askPermissionForNotification() {
 //        let center = UNUserNotificationCenter.current()
         
